@@ -1,4 +1,4 @@
-# Elytron security POC using firebase admin 
+# Wildfly Elytron security POC using firebase admin 
 
 This code is a proof-of-concept using Firebase Admin to authenticate users via a configured Firebase project. It has been tested on wildfly-preview-26.1.0.Final (EE9) and wildfly-26.1.0.Final (EE8).
 Have your firebase_credentials.json file ready and copy it into the configuration folder of your wildfly instance. Make sure its path matches the path in the configuration of the realm below.
