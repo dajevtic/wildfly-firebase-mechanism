@@ -46,3 +46,30 @@ You can configure BASIC silent additionally to form based authentication in your
 </login-config>
 ```
 
+If your war requires access to firebase admin, e.g. for messaging and other features, there is no need to include it in the war, as it is available as a wildfly module:
+
+```
+<dependency>
+    <groupId>com.google.firebase</groupId>
+    <artifactId>firebase-admin</artifactId>
+    <version>${firebase.admin.version}</version>
+    <scope>provided</scope>
+</dependency>
+```
+
+Just add the following to your WEB-INF/jboss-deployment-structure.xml:
+
+```
+<jboss-deployment-structure>
+    <deployment>
+        <dependencies>
+            <module name="de.elb.wildfly.firebase" />
+        </dependencies>
+    </deployment>
+</jboss-deployment-structure>
+```
+
+You can then access Firebase Admin via:
+```
+FirebaseApp.getInstance()
+```
